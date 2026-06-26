@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  orchestrator:
+    image: agent-space:latest
+    ports:
+      - "5000:80"
+    environment:
+      AGENT_SPACE_MODE: orchestrator
+      CLUSTER_SIZE: 4
+    volumes:
+      - ./logs:/app/logs
+
+  node1:
+    image: agent-space:latest
+    ports:
+      - "5001:80"
+    environment:
+      AGENT_SPACE_MODE: node
+      MEM_SIZE: 8G
+    volumes:
+      - ./nodes/node1:/mem
+
+  node2:
+    image: agent-space:latest
+    ports:
+      - "5002:80"
+    environment:
+      AGENT_SPACE_MODE: node
+      MEM_SIZE: 4G
+    volumes:
+      - ./nodes/node2:/mem
+
+networks:
+  agent-net:
+memory:
+  driver: "host"
+  name: "shared-memory"

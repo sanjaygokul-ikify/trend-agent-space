@@ -14,15 +14,27 @@ class Engine:
 
     def start(self):
         for agent in self.agents:
-            agent.start()
+            try:
+                agent.start()
+            except Exception as e:
+                logger.error(f'Error starting agent {agent.id}: {str(e)}')
         for memory_anchor in self.memory_anchors:
-            memory_anchor.start()
+            try:
+                memory_anchor.start()
+            except Exception as e:
+                logger.error(f'Error starting memory anchor {memory_anchor.id}: {str(e)}')
 
     def stop(self):
         for agent in self.agents:
-            agent.stop()
+            try:
+                agent.stop()
+            except Exception as e:
+                logger.error(f'Error stopping agent {agent.id}: {str(e)}')
         for memory_anchor in self.memory_anchors:
-            memory_anchor.stop()
+            try:
+                memory_anchor.stop()
+            except Exception as e:
+                logger.error(f'Error stopping memory anchor {memory_anchor.id}: {str(e)}')
 
     def add_agent(self, agent: Agent):
         self.agents.append(agent)

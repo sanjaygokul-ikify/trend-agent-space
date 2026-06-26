@@ -1,0 +1,16 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "agent-space"
+version = "0.1.0"
+description = "Distributed multi-agent orchestration framework"
+authors = ["Principal Engineer <principal@example.com>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+asyncraft = "^0.4.3"
+pmemstore = "^1.2.2"
+consentra = "^2.1.0"

@@ -1,0 +1,1 @@
+/__pycache__\n.env\n*.swp\n*.local\n/test-data/\nlogs/\n*.pid\n*.sock\n.env\n\n# Docker\n.env\ndocker-compose.override.yml\n/.docker-compose\n\n# OS generated files\n.DS_Store\nThumbs.db
